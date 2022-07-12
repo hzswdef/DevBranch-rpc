@@ -65,7 +65,7 @@ class RichPresense(object):
         try:
             self.rpc = rpc.DiscordIpcClient.for_platform(self.client_id)
         except OSError as error:
-            raise NoDiscordClient(error)
+            raise DiscordClientError(error)
     
     
     def event(self):
