@@ -20,8 +20,9 @@ WantedBy=multi-user.target
 
 
 def check_os():
-    if 'ubuntu' not in platform.version().lower():
+    if 'Ubuntu' not in platform.dist():
         raise OSError("This service installation script supports only the Ubuntu OS.")
+        sys.exit()
 
 
 def check_privileges():
@@ -38,7 +39,7 @@ def copy_project():
 
 
 def install_service():
-    with open('/lib/systemd/system/rpc.service', 'w') as file:
+    with open('/lib/systemd/system/devbranch.service', 'w') as file:
         file.write(service_data.format(os.path.expanduser('~') + '/.DevBranch-rpc'))
 
 
