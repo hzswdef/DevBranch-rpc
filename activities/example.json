@@ -1,0 +1,15 @@
+{
+    "activity_info": {
+        "name": "NAME FOR DISPLAY CURRENT RUNNING ACTIVITY",
+        "client_id": "CLIENT_ID"
+    },
+    "state": "TEXT",
+    "details": "TEXT",
+    "timestamps": {
+        "start": null
+    },
+    "assets": {
+        "large_text": "TEXT",
+        "large_image": "IMAGE_KEY"
+    }
+}
