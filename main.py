@@ -54,6 +54,7 @@ class RichPresense(object):
         
         data['timestamps']['start'] = mktime(time.localtime())
         self.data = data
+        print("[] Loaded activity config.")
     
     
     def configure_cfg(self):
@@ -64,11 +65,14 @@ class RichPresense(object):
     def rpc_init(self):
         try:
             self.rpc = rpc.DiscordIpcClient.for_platform(self.client_id)
+            print('[] Connected to rpc module.')
         except OSError as error:
             raise DiscordClientError(error)
     
     
     def event(self):
+        print('[] Start rpc')
+        
         while True:
             self.rpc.set_activity(self.data)
             
