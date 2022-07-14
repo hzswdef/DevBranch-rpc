@@ -54,7 +54,7 @@ class RichPresense(object):
         
         data['timestamps']['start'] = mktime(time.localtime())
         self.data = data
-        print("[] Loaded activity config.")
+        print(f"[] Loaded {self.activity_name} activity.")
     
     
     def configure_cfg(self):
@@ -70,7 +70,19 @@ class RichPresense(object):
             raise DiscordClientError(error)
     
     
+    def purge(self):
+        del argparse
+        del json
+        del mktime
+        del getcwd
+        
+        del self.activity_name
+        del self.client_id
+    
+    
     def event(self):
+        self.purge()
+        
         print('[] Start rpc')
         
         while True:
